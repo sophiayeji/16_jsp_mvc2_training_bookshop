@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import bookshop.dto.BookDTO;
+
 public class AdminInvDAO {
 
 	private AdminInvDAO() {}
@@ -44,6 +46,26 @@ public class AdminInvDAO {
     	if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
         if (conn != null)  {try {conn.close();}  catch (SQLException e) {}}
     }
+	
+	public ArrayList<BookDTO > getInvList() {
+		
+		ArrayList<BookDTO> InvList = new ArrayList<BookDTO>();
+		
+		getConnection();
+		String sql = "SELECT * FROM BOOK B ";
+			   sql += "INNER JOIN `ORDER` O ";
+			   sql += "ON O.BOOK_CD = B.BOOK_CD ";
+			   sql += "AND O.BOOK_CD  = ?";
+	//	pstmt = conn.prepareStatement(sql);
+	//	pstmt.setInt(1, bookCd);
+	//	rs    = pstmt.executeQuery();
+		
+		return InvList;
+			
+	}
+	
+	
+	
 	
 	public ArrayList<HashMap<String, Object>> getAdminInvList(int bookCd) {
 

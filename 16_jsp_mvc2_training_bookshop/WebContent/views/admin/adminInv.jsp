@@ -94,8 +94,8 @@
                         <table>
                         	<colgroup>
                         		<col width="10%">
-                        		<col width="15%">
-                        		<col width="75%">
+                        		<col width="10%">
+                        		<col width="10%">
                         	</colgroup>
                             <thead>
                                 <tr>
@@ -109,10 +109,10 @@
                             </thead>
                             <tbody>
                             	<c:set var="idx" value="1" />
-                            	<c:forEach var="invMap" items="${invMapList }">
+                            	<c:forEach var="orderMap" items="${{orderMapList}">
 	                                <tr>
 	                                	<td>${idx}</td>
-	                                	<td>${invMap.book_cd }</td>
+	                                	<td>${orderMap.book_cd }</td>
 	                                	<td>${invMap.book_nm }</td>
 	                                	<td>${invMap.isbn }</td>
 	                                	<td>${invMap.publisher }</td>

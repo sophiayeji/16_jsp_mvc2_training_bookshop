@@ -184,6 +184,9 @@ public class OrderDAO {
 				orderMap.put("deliveryPrice" , rs.getInt("DELIVERY_PRICE"));
 				orderMap.put("point" , rs.getInt("POINT"));
 				orderMap.put("imgNm" , rs.getString("IMG_NM"));
+				orderMap.put("isbn" , rs.getString("ISBN"));
+				orderMap.put("published_Dt" , rs.getString("PUBLISHED_DT"));
+				orderMap.put("stock" , rs.getString("STOCK"));
 				
 			}
 			

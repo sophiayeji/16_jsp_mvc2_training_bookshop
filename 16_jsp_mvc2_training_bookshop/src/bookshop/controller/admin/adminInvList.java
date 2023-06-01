@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bookshop.dao.AdminInvDAO;
 import bookshop.dao.AdminOrderDAO;
 import bookshop.dao.BookDAO;
+import bookshop.dao.OrderDAO;
 import bookshop.dto.BookDTO;
 
 
@@ -21,14 +23,9 @@ public class adminInvList extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-
-		String bookCd = String.valueOf(request.getParameter("bookCd"));
-		System.out.println("!!!!!!!!");
-		System.out.println(bookCd);
-		
-		request.setAttribute("invMapList", AdminInvDAO.getInstance().getAdminInvList(bookCd));
+		request.setAttribute("bookList", BookDAO.getInstance().getBookList());
 	
-		RequestDispatcher dis = request.getRequestDispatcher("views/admin/adminInvList.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("views/admin/adminInv.jsp");
 		dis.forward(request, response);
 
 	}
